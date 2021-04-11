@@ -15,9 +15,7 @@ export class Controller {
   }
 
   create(req: Request, res: Response): void {
-    ExamplesService.create(req.body.name).then((r) =>
-      res.status(201).location(`/api/v1/examples/${r.id}`).json(r)
-    );
+    ExamplesService.create(req.body.name).then((r) => res.status(201).location(`/api/v1/examples/${r.id}`).json(r));
   }
 }
 export default new Controller();
