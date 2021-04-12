@@ -8,6 +8,7 @@ import l from './logger';
 
 import errorHandler from '../api/middlewares/error.handler';
 import * as OpenApiValidator from 'express-openapi-validator';
+import connect from '../db';
 
 const app = express();
 
@@ -39,6 +40,8 @@ export default class ExpressServer {
         ignorePaths: /.*\/spec(\/|$)/,
       })
     );
+
+    connect();
   }
 
   router(routes: (app: Application) => void): ExpressServer {
