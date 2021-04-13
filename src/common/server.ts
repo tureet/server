@@ -8,7 +8,7 @@ import l from './logger';
 
 import errorHandler from '../api/middlewares/error.handler';
 import * as OpenApiValidator from 'express-openapi-validator';
-import connect from '../db';
+import connectDb from '../db';
 
 const app = express();
 
@@ -41,7 +41,7 @@ export default class ExpressServer {
       })
     );
 
-    connect();
+    connectDb();
   }
 
   router(routes: (app: Application) => void): ExpressServer {
